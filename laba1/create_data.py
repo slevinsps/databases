@@ -43,7 +43,7 @@ def get_number(begin, end):
     return random.randint(begin, end)
 
 def get_data():
-    return str(random.randint(1926, 2000))+'0'+str(random.randint(1, 9))+str(random.randint(10, 31))
+    return str(random.randint(1926, 2000))+'0'+str(random.randint(1, 9))+str(random.randint(10, 25))
 num_film = 101
 num_actor = 101
 num_studio = 101

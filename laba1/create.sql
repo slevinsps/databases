@@ -69,12 +69,12 @@ GO
 -- Create the table in the specified schema
 CREATE TABLE dbo.Contracts
 (
-    ID int NOT NULL PRIMARY KEY, 
-    Actor INT REFERENCES Actors (ID),
-	Film INT REFERENCES Films (ID),
+    ID INT NOT NULL PRIMARY KEY, 
+    Actor INT NOT NULL REFERENCES Actors (ID),
+	Film INT NOT NULL REFERENCES Films (ID),
 	Fee Int,
 	Work_days Int,
-	Studio INT REFERENCES Studios (ID)
+	Studio INT NOT NULL REFERENCES Studios (ID)
 );
 GO
 
