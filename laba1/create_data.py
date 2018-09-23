@@ -64,12 +64,12 @@ def create_film_csv(genres, countries):
         p.write(string_to_write)
     p.close()
     
-def create_actor_csv():
+def create_actor_csv(firstname, secondname):
     p = open('actor.csv', 'w')
     p.write("Id,Name,Birthdate,Rating,Еxperience\n")
     for i in range(1, num_actor):
         string_to_write = "{0},{1},{2},{3},{4}\n".format(i,
-                                                             get_word(3, 7) + ' ' + get_word(5, 10),
+                                                             get_random_from_list(firstname) + ' ' + get_random_from_list(secondname),
                                                              get_data(),
                                                              get_number(1, 100),
                                                              get_number(1, 50)
@@ -113,10 +113,12 @@ def create_contract_csv():
 def generate():
     genres = ['Comedy', 'Action', 'Adventure', 'Drama', 'Political', 'Satire', 'Thriller', 'Western', 'Historical', 'Fantasy', 'Social', 'Urban']
     countries = ['Russia', 'USA', 'UK', 'Greece', 'Spain', 'Mexico', 'Ukraine', 'Japan', 'Montenegro', 'SAR', 'Brazil', 'Makedonia']
+    firstname = ['Ivan', 'Jack', 'Harry', 'Leo', 'Oliver', 'Henry', 'Max', 'Adam', 'Toby', 'Arthur', 'Lucas', 'Samuel', 'Rodger', 'Rudy', 'Jimmy']
+    secondname = ['Smith', 'Johnson', 'Jones', 'Thompson', 'Green', 'Baker', 'Brown', 'Jackson', 'King', 'Phillips', 'Moore', 'Hill', 'Milcovic', 'Padaleci', 'White']
     create_film_csv(genres, countries)
-    create_actor_csv()
+    #create_actor_csv(firstname, secondname)
     create_studio_csv(countries)
-    create_contract_csv()
+    #create_contract_csv()
     
     #raw_data = pandas.read_csv('titanic.csv')
     #size = raw_data['PassengerId'].count()

@@ -30,8 +30,8 @@ CREATE TABLE dbo.Films
     Genre VARCHAR(30),
     Country VARCHAR(30), 
     Year int,
-    Budget VARCHAR(30),
-	Gross VARCHAR(30)
+    Budget Money,
+	Gross Money
 );
 GO
 
@@ -73,7 +73,7 @@ CREATE TABLE dbo.Contracts
     Actor INT NOT NULL REFERENCES Actors (ID),
 	Film INT NOT NULL REFERENCES Films (ID),
 	Fee Money,
-	Work_days Int,
+	Work_days INT,
 	Studio INT NOT NULL REFERENCES Studios (ID)
 );
 GO
