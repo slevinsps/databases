@@ -41,7 +41,26 @@ def get_word(begin, end):
 
 def get_number(begin, end):
     return random.randint(begin, end)
+	
+arr_par_com = []
+def get_array_par():
+	par_com = 0
+	ind_par_com = 1
+	
+	for i in range(1, 101):
+		if par_com > 3:
+			ind_par_com += 1
+			par_com = 1
+		arr_par_com.append(ind_par_com)
+		par_com += 1
+get_array_par()
+random.shuffle(arr_par_com)
 
+print(arr_par_com	)
+def get_number_par_com(begin, end):
+	return random.randint(begin, end)
+		
+	
 def get_data():
     return str(random.randint(1926, 2000))+'0'+str(random.randint(1, 9))+str(random.randint(10, 25))
 num_film = 101
@@ -81,13 +100,14 @@ def create_actor_csv(firstname, secondname):
 
 def create_studio_csv(countries):
     p = open('studio.csv', 'w')
-    p.write("Id,Name,Country,Owner,Employees_number\n")
+    p.write("Id,Name,Country,Owner,Employees_number,Parent_company\n")
     for i in range(1, num_studio):
-        string_to_write = "{0},{1},{2},{3},{4}\n".format(i,
+        string_to_write = "{0},{1},{2},{3},{4},{5}\n".format(i,
                                                              get_word(5, 14),
                                                              get_random_from_list(countries),
                                                              get_word(7, 14),
-                                                             get_number(500, 15000)
+                                                             get_number(500, 15000),
+															 arr_par_com[i-1]
                                                              )
         string_to_write = string_to_write.replace(", ", " ")
         string_to_write = string_to_write.replace("Null", "")
@@ -115,7 +135,7 @@ def generate():
     countries = ['Russia', 'USA', 'UK', 'Greece', 'Spain', 'Mexico', 'Ukraine', 'Japan', 'Montenegro', 'SAR', 'Brazil', 'Makedonia']
     firstname = ['Ivan', 'Jack', 'Harry', 'Leo', 'Oliver', 'Henry', 'Max', 'Adam', 'Toby', 'Arthur', 'Lucas', 'Samuel', 'Rodger', 'Rudy', 'Jimmy']
     secondname = ['Smith', 'Johnson', 'Jones', 'Thompson', 'Green', 'Baker', 'Brown', 'Jackson', 'King', 'Phillips', 'Moore', 'Hill', 'Milcovic', 'Padaleci', 'White']
-    create_film_csv(genres, countries)
+    #create_film_csv(genres, countries)
     #create_actor_csv(firstname, secondname)
     create_studio_csv(countries)
     #create_contract_csv()

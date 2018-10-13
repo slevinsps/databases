@@ -60,7 +60,8 @@ CREATE TABLE dbo.Studios
     Name VARCHAR(30) NOT NULL,
 	Country VARCHAR(30), 
 	Owner VARCHAR(30), 
-    Employees_number int
+    Employees_number int,
+	Parent_company INT  REFERENCES Studios (ID)
 );
 GO
 
